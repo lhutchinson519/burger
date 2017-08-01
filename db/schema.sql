@@ -10,3 +10,9 @@ CREATE TABLE burgers (
   date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(id)
 );
+
+-- Insert a set of records.
+INSERT INTO burgers (burger_name, devoured)
+VALUES ("Cheeseburger",true)
+
+select * from burgers
