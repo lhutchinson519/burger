@@ -13,6 +13,7 @@ CREATE TABLE burgers (
 
 -- Insert a set of records.
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Cheeseburger",true)
+VALUES ("Cheeseburger",false)
 
-select * from burgers
+
+SELECT * from burgers;
