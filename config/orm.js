@@ -16,12 +16,12 @@ var orm = {
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
-        queryString += "VALUES (";
+        queryString += "VALUES (?,?";
         queryString += ") ";
 
         console.log(queryString);
 
-        connection.query(queryString, cols, vals, function(err, result) {
+        connection.query(queryString, vals, function(err, result) {
             if (err) {
                 throw err;
             }

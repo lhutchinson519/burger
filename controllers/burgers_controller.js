@@ -20,12 +20,25 @@ router.post("/", function(req, res) {
     burger.insertOne([
         "burger_name", "devoured"
     ], [
-        req.body.name, req.body.devoured
+        req.body.burger, 0
     ], function() {
-    	//res.render("index", burger);
         res.redirect("/");
     });
 });
+
+router.put("/:id", function(req, res) {
+	//if params doesnt work change to body
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  burger.update({
+    devoured: true
+  }, condition, function() {
+    res.redirect("/");
+  });
+});
+
 
 
 // Export routes for server.js to use.
