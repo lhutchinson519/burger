@@ -6,7 +6,7 @@
       <p> {{this.id}}. {{this.burger_name}} <p>
 
         <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="submit" value="Devoure it!">
+          <input type="submit" value="Devour it!">
         </form>
     {{/unless}}
   {{/each}}
@@ -20,11 +20,11 @@
   {{/each}}
 </div>
 
-<p>Enter a burger you want to eat.</p>
-
 <form method="POST" action="/" class="button-size">
 	<textarea type="text" name="burger"></textarea>
 	<button type="submit">Submit</button>
 </form>
+
+<p>Enter a burger you want to eat.</p>
 
 
