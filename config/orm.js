@@ -1,5 +1,17 @@
 var connection = require("../config/connection.js")
 
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
 var orm = {
     selectAll: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
@@ -22,6 +34,23 @@ var orm = {
         console.log(queryString);
 
         connection.query(queryString, vals, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
+    },
+    updateOne: function(table, objColVals, burgerId, cb) {
+        var queryString = "UPDATE " + table;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE id = ";
+        queryString += burgerId;
+
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }

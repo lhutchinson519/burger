@@ -27,16 +27,13 @@ router.post("/", function(req, res) {
 });
 
 router.put("/:id", function(req, res) {
-	//if params doesnt work change to body
-  var condition = "id = " + req.params.id;
+    var burgerId = req.params.id
 
-  console.log("condition", condition);
-
-  burger.update({
-    devoured: true
-  }, condition, function() {
-    res.redirect("/");
-  });
+    burger.updateOne({
+        devoured: true
+    }, burgerId, function() {
+        res.redirect("/");
+    });
 });
 
 

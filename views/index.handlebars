@@ -2,10 +2,23 @@
 
 <ul>
   {{#each burgers}}
+    {{#unless this.devoured}}
       <p> {{this.id}}. {{this.burger_name}} <p>
-      <button type="submit">Devour it!</button>
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="submit" value="Devoure it!">
+        </form>
+    {{/unless}}
   {{/each}}
 </ul>
+
+<div class="move">
+  {{#each burgers}}
+    {{#if this.devoured}}
+      <p> {{this.id}}. {{this.burger_name}} <p>
+    {{/if}}
+  {{/each}}
+</div>
 
 <p>Enter a burger you want to eat.</p>
 
@@ -14,12 +27,4 @@
 	<button type="submit">Submit</button>
 </form>
 
-<div class="move">
-  {{#each burgers}}
-    {{#if (this.devoured === true)}} 
-
-    ---input form that has the name(text) and a placeholder that gives the id and the burgername
-    {{/if}}
-  {{/each}}
-</div>
 

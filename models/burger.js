@@ -13,6 +13,11 @@ var burger = {
             cb(res);
         });
     },
+    updateOne: function(objColVals, burgerId, cb) {
+        orm.updateOne("burgers", objColVals, burgerId, function(res) {
+            cb(res);
+        });
+    },
 };
 
 module.exports = burger;
