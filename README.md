@@ -1,1 +1,2 @@
 # burger
+This application creates a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM. In addition to the MVC design pattern, Node and MySQL are used to query and route data in the app, and Handlebars to generate the HTML. When a user "devours" the burger, the burger is moved to the right side of the page. The app then stores every burger in the database whether devoured or not.
