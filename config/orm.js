@@ -13,6 +13,7 @@ function objToSql(ob) {
 }
 
 var orm = {
+  //Function that will query al data results from the table in mysql
     selectAll: function(tableInput, cb) {
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
@@ -22,6 +23,7 @@ var orm = {
             cb(result);
         });
     },
+  //function that will allow a user to input a new burger into the database
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
 
@@ -41,6 +43,7 @@ var orm = {
             cb(result);
         });
     },
+  //function that runs when the user decides to devour the burger
     updateOne: function(table, objColVals, burgerId, cb) {
         var queryString = "UPDATE " + table;
 
@@ -59,5 +62,5 @@ var orm = {
         });
     },
 }
-
+//exports the orm for use
 module.exports = orm;
